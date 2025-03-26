@@ -5,6 +5,7 @@
     </head>
 
     <body>
+        <div id=" container">
         <center>
             <img id="image" src="/public/images/rdplogo.png"/>
             <h4>Mock JSON Database Operations</h4>
@@ -37,7 +38,7 @@
 
             <input type="text" id="new_email" placeholder="New Email:" />
         
-            <button type="submit">Add User</button>
+            <button type="submit">Edit User</button>
 
         </form>
 
@@ -47,12 +48,26 @@
             <input type="text" id="delete_id" placeholder="User ID:" />
 
             <button type="Submit" onclick="deleteUser()"> Delete User</button>
-
-
-
-
-
-        </form>
+      </form>
+    </div>
     </body>
+<script>
+   function updateUser(){
+    //grab the edit from
+    const editUserForm = document.getElementById('editUserForm');
 
+    // grab the id from hte input 
+    const id = document.getElementById('edit_id').value;
+
+    //insert the id   into the action attribute
+    editUserForm.action = "/users/" + id +"/update";
+
+    //submit the form 
+    editUserForm.submit();
+
+
+   }
+
+
+</script>
 </html>
