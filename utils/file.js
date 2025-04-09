@@ -1,5 +1,5 @@
 const fs = require('fs').promises;
-const filePath = require('../database.json');
+const filePath = './database.json';
 
 
 async function readData(){
@@ -7,7 +7,7 @@ try{
     const data = await fs.readFile(filePath, 'utf-8');
     return JSON.parse(data);
 }catch(error){
-    throw new Error('Internal Serve Error');
+    throw new Error(`Internal Serve Error : ${error}`);
 }
 }
 
